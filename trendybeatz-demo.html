@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrendyBeatz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sevillana&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Savate:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', 'Kings', 'Sevillana', Helvetica, sans-serif;
+    }
+
+    .header {
+      background-color: #121212;
+      font-size: 25px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      flex-wrap: wrap;
+    }
+
+    .header-row img {
+      width: 120px; /* adjust as needed */
+      height: auto;
+    }
+
+    .header h4 {
+      margin: 0;
+      font-size: 1.4rem;
+      text-align: center;
+      flex: 1;
+    }
+
+    .header h4 a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .header h4 a:hover {
+      color: #4CAF50; /* change color on hover */
+    }
+
+    @media screen and (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .header-row img {
+        width: 100px; /* shrink logo on small screens */
+      }
+
+      .header h4 {
+        font-size: 0.9rem;
+        margin-top: 10px;
+      }
+    }
+
+     .topnav {
+        background-color: #121212;
+        overflow: hidden;
+        padding: 10px 5px;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+        display: flex;
+        justify-content: space-around;
+      }
+      
+
+    .topnav #links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .topnav a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 8px 12px;
+      font-weight: 500;
+      display: block;
+      font-size: 14px;
+      border-radius: 4px;
+      line-height: 1.5;
+      transition: ease-in-out 0.3s;
+    }
+
+    .topnav a:hover {
+      background-color: #4CAF50;
+      color: black;
+    }
+
+    .topnav .icon {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 768px) {
+      .topnav #links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .topnav.responsive #links {
+        display: flex;
+      }
+
+      .topnav .icon {
+        display: block;
+      }
+    }
+    .search-form {
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      border-radius: 65px;
+      margin: 10px;
+    }
+    
+    .search-form input[type="text"] {
+      width: 60%;
+      padding: 10px;
+      border-radius: 65px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+      margin-top: 10px;
+      height: 45px;
+      text-align: center;
+      font-size: 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+
+    .search-form button {
+      padding: 15px 40px;
+      border-radius: 65px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: ease-in-out 0.3s;
+    }
+
+    .search-form button:hover {
+      background-color: #247328;
+    }
+
+    .rows {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      width: 100%;
+      margin-top: 20px;
+      background-color: #f9f9f9;
+      
+    }
+   
+    .main {
+      flex: 2;
+      padding: 10px;
+      text-align: left;
+      font-size: 18px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+      }
+
+    .main h3, .side h3 {
+      text-align: center;
+      font-size: 27px;
+      color: rgb(74, 74, 74);
+      border-style: outset;
+      border-radius: 4px;
+    }
+
+    .row-card {
+      display: flex;
+      margin: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+      padding: 10px;
+      align-items: center;
+      background: linear-gradient(to left, #fff8f0, #ffe6d5);
+      border: 1px solid #ddd;
+    }
+    .row-card img {
+      border-radius: 4px;
+      
+    }
+
+    .row-card:hover {
+      transform: scale(1.02);
+    }
+
+    .artwork {
+      padding: 5px;
+      width: 25%;
+      border-radius: 8px;
+     }
+
+    .details {
+      padding: 5px;
+      width: 75%;
+      border-radius: 8px;
+    }
+
+    details a, .albums-list a {
+      transition: color 0.3s ease, text-decoration 0.3s ease;
+      font-weight: bold;
+    }
+
+    .details a:hover, .albums-list a:hover {
+      color: #165ca2;
+      text-decoration: underline;
+    }
+
+    .row-card a, .albums-list a {
+      text-decoration: none;
+      }
+
+/* Responsive Behavior */
+      @media screen and (max-width: 600px) {
+        .row-card {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .artwork img {
+          width: 100%;
+          height: auto;
+        }
+
+        .details {
+          padding-left: 0;
+          margin-top: 10px;
+        }
+
+        .details h1 {
+          font-size: 18px;
+        }
+      }
+
+      @media only screen and (min-width: 7668px) {
+      .main {
+          width: 70%;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+        .side {
+            width: 30%;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+      .rows {
+        flex-direction: column;
+      }
+
+      .main, .side {
+        width: 100%;
+      }
+    }
+
+    .side {
+        flex: 1;
+        padding: 10px;
+        color: #000000;
+        text-align: center;
+        font-size: 14px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+    
+    .side-links h4, .side-links a {
+      font-family: Savate;
+      font-size: 24px;
+      text-align: center;
+      text-decoration: none;
+      color: green;
+      transition: color 0.3s ease, text-decoration 0.3s ease;
+      line-height: 1.5;
+      border: 1.5px solid #e4b18f;
+      border-radius: 8px;
+    }
+
+    .side-links a :hover {
+      color: #25c52b;
+      text-decoration: underline;
+    }
+
+    .artistes button{
+      color: #fff;
+      font-family: Poppins, Arial, Helvetica, sans-serif;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      padding: 8px 16px;
+      background-color: #2f68a0;
+      text-align: center;
+      transition: background-color, color 0.3s ease;
+    }
+
+    .artistes button:hover {
+      background-color: #004680;
+      color: #000;
+    }
+
+    .artistes a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .albums-list {
+      display: flex;
+      margin: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+      padding: 10px;
+      align-items: center;
+      background: linear-gradient(to left, #fff8f0, #ffe6d5);
+      border: 1px solid #ddd;
+      flex-direction: column;
+    }
+
+    .albums-list:hover {
+      transform: scale(1.03);
+    }
+
+    .albums-list h4 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .albums-list p {
+      font-size: 15px;
+      color: #117292;
+      margin: 5px 0;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .top-artistes {
+      font-family: 'Poppins', sans-serif; /* Modern clean font */
+      font-size: 28px;
+      color: #d2691e; /* modern chocolate brown */
+      text-align: center;
+      padding: 10px 20px;
+      border: 1.5px solid #d2691e;
+      border-radius: 10px;
+      background: linear-gradient(to left, #fff8f0, #ffe6d5);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+.top-artistes:hover {
+  transform: scale(1.02); /* gentle zoom on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+    footer {
+      display: flex;
+      background-color: #0d0f10;
+      color: #ffffff;
+      
+      padding: 10px 5px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    footer p {
+      margin: 18px 0;
+      font-size: 18px;
+    }
+
+    footer a {
+      color: #4CAF50; /* change color on hover */
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    footer a:hover {
+      color: #fff; /* change color on hover */
+    }
+
+    footer b {
+      color: #4CAF50; /* change color on hover */
+      font-weight: bold;
+    }
+
+    .footer1, .footer2, .footer3 {
+      display: flex;
+      color: #ffffff;
+      text-align: left;
+      padding: 20px;
+      flex-direction: column;
+      bottom: 0;
+      width: 100%;
+      
+    }
+
+   
+
+    .footer4 {
+      
+      color: #ffffff;
+      text-align: center;
+      padding: 20px 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    #gotop {
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      font-size: 16px;
+      background-color: #982e45;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer4 button {
+      background-color: #4CAF50;
+      margin-top: 16px;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .footer4 button:hover {
+      background-color: #45a049;
+    }
+
+</style>
+</head>
+<body>
+   <header>
+  <div id="datetime"></div>
+</header>
+  <div class="header">
+   <div class="header-row">
+      <a href="https://trendybeatz.com">
+        <img src="./images/TrendyBeatz-Logo-small2.jpg" alt="TrendyBeatz Logo"></a>
+    </div>
+    <h4><a href="https://whatsapp.com/channel/0029VaAaS5A9hXEz4LlyrU1v" rel="nofollow" target="blank"><b>Click Here To Join our WhatsApp Channel For "Latest Music"</b></a></h4>
+  </div>
+  <br>
+  <div class="topnav" id="sticky">
+    <a href="#" class="icon" onclick="toggleMenu()">☰</a>
+    <div id="links"><a href="https://trendybeatz.com">Home</a>
+    <a href="https://trendybeatz.com/music-download">Music</a>
+    <a href="https://trendybeatz.com/download-latest-videos">Video</a>
+    <a href="https://trendybeatz.com/djmix">DJ Mix</a>
+    <a href="https://trendybeatz.com/artists">All Artists</a>
+    <a href="https://trendybeatz.com/musics/naija">Naija Music</a>
+    <a href="https://trendybeatz.com/artist-albums">Albums/EP</a>
+    <a href="https://trendybeatz.com/musics/gospel">Gospel Music</a>
+    <a href="#about">Music News</a>
+    <a href="#services">All Music</a>
+    <a href="#contact">Ghana Music</a>
+    <a href="#home">African Music</a>
+    <a href="#about">Comedy Videos</a>
+    <a href="#contact">Highlife Music</a>
+    </div>
+  </div>
+
+  <div class="search-form">
+    <form autocomplete="off" method="GET" action="https://trendybeatz.com/search" id="searchForm">
+      <input type="hidden" name="_token" value="WR9Uz3tiH47Q0GJKYE2Sm5oVpBlXjVv0tsWSm4NZ"> 
+        <div class="autocomplete" style="width:100%;">
+        <input type="text" id="myInput" placeholder="Search TrendyBeatz.." name="search">
+                </div>
+                
+        <button type="submit" name="submit" value="Search source code" id="searchButton"><i class="fa fa-search"></i>Search</button>
+                <input type="hidden" id="datalist" value="">
+                </form>
+  </div>
+
+  <div class="rows">
+    <div class="main">
+      <!-- Start of main contents-->
+      
+      <h4 class="top-artistes">Download Latest Naija Music and Videos</h4>
+
+        <div class="published" style="text-align: center;">
+          <time><span style="font-size: 12px; color: #121212;" class="post-date" time datetime="Jun 20, 2025">Jun 20, 2025</span></time>
+        </div>
+        <br>
+        <p style="text-align: center; font-size: 16px; color: #777;">
+          <b>Advertisement</b></p>
+
+          <div class="row-card" >
+            
+            <div class="artwork">
+              <img src="./images/Kizz-Daniel-Uncle-K-Lemon-Chase-EPArtwork1.jpg" alt="Kizz Daniel" width="170" height="170">
+            </div>
+            <div class="details">
+              <h1 style="text-decoration: none; font-size: 26px; color: #000"><a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Kizz Daniel - Al Jannah ft. Odumodublvck, Bella Shmurda</a></h1>
+              
+                <p style="font-size: 15px; color: #121212;">Rating:</p>
+                <p style="font-size: 15px; color: #121212;">Featuring: OdumoduBlvck, Bella Shmurda</p>
+                <span class="small" style="color: green;">Download</span>
+                <p>
+                  <span class="small" style="color: #c00714;">Stream</span>
+                </p>
+              
+              
+            </div>
+          </div>
+           <div class="row-card">
+           
+            <div class="artwork">
+              <img src="./images/Young-Jonn-Che-Che-Artwork.jpg" alt="Kizz Daniel" width="170" height="170">
+            </div>
+            <div class="details">
+              <h1 style="text-decoration: none; font-size: 26px; color: #121212;"> <a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Young Jonn - Che Che ft Asake</a></h1>
+             
+                <p style="font-size: 15px; color: #121212;">Rating:</p>
+                <p style="font-size: 15px; color: #121212;">Featuring: Asake</p>
+                <span class="small" style="color: green;">Download</span>
+                <p>
+                  <span class="small" style="color: #c00714;">Stream</span>
+                </p>
+             
+              
+            </div>
+          </div>
+           <div class="row-card">
+            
+            <div class="artwork">
+              <img src="./images/Tony-E-Cash-Out-ft-Honour-Gold-Artwork.jpg" alt="Black Sherif" width="170" height="170">
+            </div>
+            <div class="details">
+              <h1 style="text-decoration: none; font-size: 26px; color: #121212;"><a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Tony E - Cash Out ft Honour Gold</a></h1>
+             
+                <p style="font-size: 15px; color: #121212;">Rating:</p>
+                <span class="small" style="color: green;">Download</span>
+                <p>
+                  <span class="small" style="color: #c00714;">Stream</span>
+                </p>
+              
+              
+            </div>
+          </div>
+           <div class="row-card">
+            
+            <div class="artwork">
+              <img src="./images/BNXN-Captain-AlbumArtwork.jpg" alt="Kizz Daniel" width="170" height="170">
+            </div>
+            <div class="details">
+              <h1 style="text-decoration: none; font-size: 26px; color: #121212;"><a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Buju BNXN - Very Soon ft Fola</a></h1>
+              
+                <p style="font-size: 15px; color: #121212;">Rating:</p>
+                <p style="font-size: 15px; color: #121212;">Featuring: Fola </p>
+                <span class="small" style="color: green;">Download</span>
+                <p>
+                  <span class="small" style="color: #c00714;">Stream</span>
+                </p>
+              
+              
+            </div>
+          </div>
+           <div class="row-card">
+            
+            <div class="artwork">
+              <img src="./images/GiobiPraise-Blessed-Be-Your-Name-Artwork.jpeg" alt="Kizz Daniel" width="170" height="170">
+            </div>
+            <div class="details">
+              <h1 style="text-decoration: none; font-size: 26px; color: #121212;"><a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Giobipraise - Blessed Be Your Name</a></h1>
+              
+                <p style="font-size: 15px; color: #121212;">Rating:</p>
+                <span class="small" style="color: green;">Download</span>
+                <p>
+                  <span class="small" style="color: #c00714;">Stream</span>
+                </p>
+              
+              
+            </div>
+          </div>
+           <div class="row-card">
+           
+            <div class="artwork">
+              <img src="./images/Simi-Day-By-Day-Artwork.jpg" alt="Kizz Daniel" width="170" height="170">
+            </div>
+            <div class="details">
+              <h1 style="text-decoration: none; font-size: 26px; color: #121212;"> <a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Simi - Day By Day ft Kizz Daniel</a></h1>
+             
+                <p style="font-size: 15px; color: #121212;">Rating:</p>
+                <p style="font-size: 15px; color: #121212;">Featuring: Kizz Daniel</p>
+                <span class="small" style="color: green;">Download</span>
+                <p>
+                  <span class="small" style="color: #c00714;">Stream</span>
+                </p>
+              
+              
+            </div>
+          </div>
+           <div class="row-card">
+            
+            <div class="artwork">
+              <img src="./images/Chris-Factor-Amazing-Artwork.JPG" alt="Chris Factor" width="170" height="170">
+            </div>
+            <div class="details">
+              <h1 style="text-decoration: none; font-size: 26px; color: #121212;"><a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Chris Factor - Amazing</a></h1>
+             
+                <p style="font-size: 15px; color: #121212;">Rating:</p>
+                <p style="font-size: 15px; color: #121212;">Featuring: OdumoduBlvck, Bella Shmurda</p>
+                <span class="small" style="color: green;">Download</span>
+                <p>
+                  <span class="small" style="color: #c00714;">Stream</span>
+                </p>
+              
+              
+            </div>
+          </div>
+           <div class="row-card">
+            
+            <div class="artwork">
+              <img src="./images/Black-Sherif-Iron-Boy-AlbumArtwork1.jpg" alt="Kizz Daniel" width="170" height="170">
+            </div>
+            <div class="details">
+              <h1 style="text-decoration: none; font-size: 26px; color: #121212;"><a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Black Sherif - Sacrifice</a></h1>
+              
+                <p style="font-size: 15px; color: #121212;">Rating:</p>
+                
+                <span class="small" style="color: green;">Download</span>
+                <p>
+                  <span class="small" style="color: #c00714;">Stream</span>
+                </p>
+              
+            </div>
+          </div>
+           <div class="row-card">
+            
+            <div class="artwork">
+              <img src="./images/Muzomzom-Light-Artwork.JPG" alt="Kizz Daniel" width="170" height="170">
+            </div>
+            <div class="details">
+              <h1 style="text-decoration: none; font-size: 26px; color: #121212;"><a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Light - Muzozom</a></h1>
+              
+                <p style="font-size: 15px; color: #121212;">Rating:</p>
+                <span class="small" style="color: green;">Download</span>
+                <p>
+                  <span class="small" style="color: #c00714;">Stream</span>
+                </p>
+              
+              
+            </div>
+          </div>
+           <div class="row-card">
+            
+            <div class="artwork">
+              <img src="./images/Goon-Flavour-Ngishutheni-Artwork.jpg" alt="Kizz Daniel" width="170" height="170">
+            </div>
+            <div class="details">
+              <h1 style="text-decoration: none; font-size: 26px; color: #121212;"><a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Goon Flavour - Ngishutheni ft Master KG, Eemoh</a></h1>
+              
+                <p style="font-size: 15px; color: #121212;">Rating:</p>
+                <p style="font-size: 15px; color: #121212;">Featuring: Master KG, Eemoh</p>
+                <span class="small" style="color: green;">Download</span>
+                <p>
+                  <span class="small" style="color: #c00714;">Stream</span>
+                </p>
+              
+              
+            </div>
+          </div>
+          <hr>
+          
+          <h4 class="top-artistes">Songs of the Day</h4>
+          <div class="row-card">
+            
+            <div class="artwork">
+              <img src="./images/Chris-Factor-Amazing-Artwork.JPG" alt="Chris Factor" width="170" height="170">
+            </div>
+            <div class="details">
+              <h1 style="text-decoration: none; font-size: 26px; color: #121212;"><a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Chris Factor - Amazing</a></h1>
+             
+                <p style="font-size: 15px; color: #121212;">Rating:</p>
+                <p style="font-size: 15px; color: #121212;">Featuring: OdumoduBlvck, Bella Shmurda</p>
+                <span class="small" style="color: green;">Download</span>
+                <p>
+                  <span class="small" style="color: #c00714;">Stream</span>
+                </p>
+              
+              
+            </div>
+          </div>
+           <div class="row-card">
+            
+            <div class="artwork">
+              <img src="./images/Black-Sherif-Iron-Boy-AlbumArtwork1.jpg" alt="Kizz Daniel" width="170" height="170">
+            </div>
+            <div class="details">
+              <h1 style="text-decoration: none; font-size: 26px; color: #121212;"><a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Black Sherif - Sacrifice</a></h1>
+              
+                <p style="font-size: 15px; color: #121212;">Rating:</p>
+                
+                <span class="small" style="color: green;">Download</span>
+                <p>
+                  <span class="small" style="color: #c00714;">Stream</span>
+                </p>
+              
+            </div>
+          </div>
+           <div class="row-card">
+            
+            <div class="artwork">
+              <img src="./images/Muzomzom-Light-Artwork.JPG" alt="Kizz Daniel" width="170" height="170">
+            </div>
+            <div class="details">
+              <h1 style="text-decoration: none; font-size: 26px; color: #121212;"><a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Light - Muzozom</a></h1>
+              
+                <p style="font-size: 15px; color: #121212;">Rating:</p>
+                <span class="small" style="color: green;">Download</span>
+                <p>
+                  <span class="small" style="color: #c00714;">Stream</span>
+                </p>
+              
+              
+            </div>
+          </div>
+           <div class="row-card">
+            
+            <div class="artwork">
+              <img src="./images/Goon-Flavour-Ngishutheni-Artwork.jpg" alt="Kizz Daniel" width="170" height="170">
+            </div>
+            <div class="details">
+              <h1 style="text-decoration: none; font-size: 26px; color: #121212;"><a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Goon Flavour - Ngishutheni ft Master KG, Eemoh</a></h1>
+              
+                <p style="font-size: 15px; color: #121212;">Rating:</p>
+                <p style="font-size: 15px; color: #121212;">Featuring: Master KG, Eemoh</p>
+                <span class="small" style="color: green;">Download</span>
+                <p>
+                  <span class="small" style="color: #c00714;">Stream</span>
+                </p>
+              
+              
+            </div>
+          </div>
+           <div class="row-card">
+            
+            <div class="artwork">
+              <img src="./images/Goon-Flavour-Ngishutheni-Artwork.jpg" alt="Kizz Daniel" width="170" height="170">
+            </div>
+            <div class="details">
+              <h1 style="text-decoration: none; font-size: 26px; color: #121212;"><a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Goon Flavour - Ngishutheni ft Master KG, Eemoh</a></h1>
+              
+                <p style="font-size: 15px; color: #121212;">Rating:</p>
+                <p style="font-size: 15px; color: #121212;">Featuring: Master KG, Eemoh</p>
+                <span class="small" style="color: green;">Download</span>
+                <p>
+                  <span class="small" style="color: #c00714;">Stream</span>
+                </p>
+              
+              
+            </div>
+          </div>
+          
+    </div>
+  <div class="side">
+      <!-- Start of side contents-->
+       <h4 class="top-artistes">Our Top Pages</h4>
+        <div class="side-links">
+            <a href="https://trendybeatz.com/musics/naija">
+            <h4>Download Latest Naija <br>Music</h4></a>
+            <a href="https://trendybeatz.com/musics/naija">
+            <h4>Download Latest Ghana <br>Music</h4></a>
+            <a href="https://trendybeatz.com/musics/naija">
+            <h4>Download Latest African <br>Music</h4></a>
+            <a href="https://trendybeatz.com/musics/naija">
+            <h4>Download Top 10 Songs of <br>the Week</h4></a>
+            <a href="https://trendybeatz.com/musics/naija">
+            <h4>Download Top 10 Songs of <br>the Day</h4></a>
+            <a href="https://trendybeatz.com/musics/naija">
+            <h4>Download Music<br>Albums/EP</h4></a>
+           <a href="https://trendybeatz.com/musics/naija">
+            <h4>Promote Your Music (For <br>Artists Only)</h4></a>
+            <a href="https://trendybeatz.com/musics/naija">
+            <h4>Advertise On TrendyBeatz</h4></a>
+          </div>
+        <br>
+          
+        <br>
+          
+        <div class="artistes">
+            <h4 class="top-artistes">Trending Artistes</h4>
+            <button><a href="https://trendybeatz.com/artists/2baba">2 Baba</a></button>
+            <button><a href="https://trendybeatz.com/artists/burna-boy">Burna Boy</a></button>
+            <button><a href="https://trendybeatz.com/artists/joeboy">Joeboy</a></button>
+            <button><a href="https://trendybeatz.com/artists/davido">Davido</a></button><br>
+            <button><a href="https://trendybeatz.com/artists/zlatan">Zlatan</a></button>
+            <button><a href="https://trendybeatz.com/artists/falz">Falz</a></button>
+            <button><a href="https://trendybeatz.com/artists/fire-boy">Fire Boy</a></button>
+            <button><a href="https://trendybeatz.com/artists/kizz-daniel">Kizz Daniel</a></button>
+            <button><a href="https://trendybeatz.com/artists/rema">Rema</a></button>
+            <button><a href="https://trendybeatz.com/artists/mayorkun">Mayorkun</a></button>
+            <button><a href="https://trendybeatz.com/artists/olamide">Olamide</a></button>
+            <button><a href="https://trendybeatz.com/artists/simi">Simi</a></button>
+            <button><a href="https://trendybeatz.com/artists/wizkid">Wizkid</a></button>
+            <button><a href="https://trendybeatz.com/artists/wande-coal">Wande Coal</a></button>
+            <button><a href="https://trendybeatz.com/artists/omah-lay">Omah Lay</a></button>
+            <button><a href="https://trendybeatz.com/artists/seyi-vibez">Seyi Vibez</a></button>
+            <button><a href="https://trendybeatz.com/artists/wande-coal">Patoranking</a></button>
+            <button><a href="https://trendybeatz.com/artists/omah-lay">Tiwa Savage</a></button>
+            <button><a href="https://trendybeatz.com/artists/seyi-vibez">Buju BNXN</a></button>
+          </div>
+
+          <br>
+
+        <div class="artistes">
+            <h4 class="top-artistes">Top Artistes</h4>
+            <button><a href="https://trendybeatz.com/artists/adekunle-gold">Adekunle Gold</a></button>
+              <button><a href="https://trendybeatz.com/artists/skales">Skales</a></button>
+              <button><a href="https://trendybeatz.com/artists/niniola">Niniola</a></button>
+              <button><a href="https://trendybeatz.com/artists/ladipoe">Ladipoe</a></button>
+              <button><a href="https://trendybeatz.com/artists/vector">Vector</a></button>
+              <button><a href="https://trendybeatz.com/artists/asa">Asa</a></button>
+              <button><a href="https://trendybeatz.com/artists/peruzzi">Peruzzi</a></button>
+              <button><a href="https://trendybeatz.com/artists/kizz-daniel">Kizz Daniel</a></button>
+              <button><a href="https://trendybeatz.com/artists/timaya">Timaya</a></button>
+              <button><a href="https://trendybeatz.com/artists/mayorkun">Mayorkun</a></button>
+              <button><a href="https://trendybeatz.com/artists/olamide">Olamide</a></button>
+              <button><a href="https://trendybeatz.com/artists/simi">Simi</a></button>
+              <button><a href="https://trendybeatz.com/artists/wizkid">Wizkid</a></button>
+              <button><a href="https://trendybeatz.com/artists/wande-coal">Wande Coal</a></button>
+              <button><a href="https://trendybeatz.com/artists/omah-lay">Omah Lay</a></button>
+              <button><a href="https://trendybeatz.com/artists/seyi-vibez">Seyi Vibez</a></button>
+              <button><a href="https://trendybeatz.com/artists/seyi-vibez">Flavor</a></button>
+          </div>
+          <br>
+           <h4 class="top-artistes">Popular Albums</h4>
+           <div class="albums-list">
+            <h4><a href="https://trendybeatz.com/artist-albums/2618/blaqbonez-emeka-must-shine-album" style="color: #c105a8dd;">Blackbonez - Emeka Must Shine Album</h4></a>
+            <p>Tracklist: 14</p>
+            <p>Year of Release: <br>2023</p>
+            <p>Released On: Oct. <br>2023-10-20</p>
+             <p>Genre: Hip-Hop/Rap</p>
+           </div>
+           <div class="albums-list">
+            <h4><a href="https://trendybeatz.com/artist-albums/2618/blaqbonez-emeka-must-shine-album" style="color: #c105a8dd;">Mr Eazi - The Evil Genius Album</h4></a>
+            <p>Tracklist: 14</p>
+            <p>Year of Release: <br>2023</p>
+            <p>Released On: Oct. <br>2023-10-20</p>
+             <p>Genre: Hip-Hop/Rap</p>
+           </div>
+           <div class="albums-list">
+            <h4><a href="https://trendybeatz.com/artist-albums/2618/blaqbonez-emeka-must-shine-album" style="color: #c105a8dd;">Rema - Ravage EP Album</h4></a>
+            <p>Tracklist: 14</p>
+            <p>Year of Release: <br>2023</p>
+            <p>Released On: Oct. <br>2023-10-20</p>
+             <p>Genre: Hip-Hop/Rap</p>
+           </div>
+           <div class="albums-list">
+            <h4><a href="https://trendybeatz.com/artist-albums/2618/blaqbonez-emeka-must-shine-album" style="color: #c105a8dd;">Fire Boy - Adedamola</h4></a>
+            <p>Tracklist: 14</p>
+            <p>Year of Release: <br>2023</p>
+            <p>Released On: Oct. <br>2023-10-20</p>
+             <p>Genre: Hip-Hop/Rap</p>
+           </div>
+           <div class="albums-list">
+            <h4><a href="https://trendybeatz.com/artist-albums/2618/blaqbonez-emeka-must-shine-album" style="color: #c105a8dd;">Asake - Mr Money With The Vibes Album</h4></a>
+            <p>Tracklist: 14</p>
+            <p>Year of Release: <br>2023</p>
+            <p>Released On: Oct. <br>2023-10-20</p>
+             <p>Genre: Hip-Hop/Rap</p>
+           </div>
+           <div class="albums-list">
+            <h4><a href="https://trendybeatz.com/artist-albums/2618/blaqbonez-emeka-must-shine-album" style="color: #c105a8dd;">Burna Boy - African Giant Album</h4></a>
+            <p>Tracklist: 14</p>
+            <p>Year of Release: <br>2023</p>
+            <p>Released On: Oct. <br>2023-10-20</p>
+             <p>Genre: Hip-Hop/Rap</p>
+           </div>
+           <div class="albums-list">
+            <h4><a href="https://trendybeatz.com/artist-albums/2618/blaqbonez-emeka-must-shine-album" style="color: #c105a8dd;">Seyi Vibez - NSNV Album</h4></a>
+            <p>Tracklist: 14</p>
+            <p>Year of Release: <br>2023</p>
+            <p>Released On: Oct. <br>2023-10-20</p>
+             <p>Genre: Hip-Hop/Rap</p>
+           </div>
+           <div class="albums-list">
+            <h4><a href="https://trendybeatz.com/artist-albums/2618/blaqbonez-emeka-must-shine-album" style="color: #c105a8dd;">Olamide - Unruly Album</h4></a>
+            <p>Tracklist: 14</p>
+            <p>Year of Release: <br>2023</p>
+            <p>Released On: Oct. <br>2023-10-20</p>
+             <p>Genre: Hip-Hop/Rap</p>
+           </div>
+      </div>
+  </div>
+  <br>
+  <footer>
+    <div class="footer1">
+      <h3>Quick Link</h3>
+      <li><a href="href=//trendybeatz.com/songs-of-the-week">Top 10 Music</a></li><br>
+      <li><a href="href=//trendybeatz.com/songs-of-the-week">Latest Videos</a></li><br>
+      <li><a href="href=//trendybeatz.com/songs-of-the-week">Download Music</a></li><br>
+      <li><a href="href=//trendybeatz.com/songs-of-the-week">Celebrity News</a></li><br>
+      <li><a href="href=//trendybeatz.com/songs-of-the-week">Upload your Songs</a></li><br>
+      <li><a href="href=//trendybeatz.com/songs-of-the-week">Music Promotion</a></li><br>
+    </div>
+    <div class="footer2">
+      <h3>Hall of Fame</h3>
+       <li><a href="href=//trendybeatz.com/songs-of-the-week">Artistes' Profiles</a></li><br>
+      <li><a href="href=//trendybeatz.com/songs-of-the-week">Albums</a></li><br>
+      <li><a href="href=//trendybeatz.com/songs-of-the-week">Artistes' Biography</a></li><br>
+      <li><a href="href=//trendybeatz.com/songs-of-the-week">Hot Gist</a></li><br>
+      <li><a href="href=//trendybeatz.com/songs-of-the-week">Upcoming Events</a></li><br>
+      <li><a href="href=//trendybeatz.com/songs-of-the-week">DJ Profiles</a></li><br>
+    </div>
+    <div class="footer3">
+      <h3>Company</h3>
+       <li><a href="href=//trendybeatz.com/songs-of-the-week">About Us</a></li><br>
+      <li><a href="href=//trendybeatz.com/songs-of-the-week">Terms of Use</a></li><br>
+      <li><a href="href=//trendybeatz.com/songs-of-the-week">Privacy Policy</a></li><br>
+      <li><a href="href=//trendybeatz.com/songs-of-the-week">Contact Us</a></li><br>
+      <li><a href="href=//trendybeatz.com/songs-of-the-week">Advertise With Us</a></li><br>
+      <li><a href="href=//trendybeatz.com/songs-of-the-week">DMCA</a></li><br>
+      <li><a href="href=//trendybeatz.com/songs-of-the-week">Sitemap</a></li><br>
+    </div>
+    <div class="footer4">
+      <h3>Address</h3>
+      <p><b>Lekki Pennisula<br>
+      Lekki, Lagos, Nigeria</b></p>
+      <p><b>For Advert & Business <br>Inquiries send an Email to us at</b></p>
+        <p style="color: #ffff00;">info@trendybeatz.com</p>
+        <p><b>Advert Placement.<br>
+          Call/WhatsApp: 07067455144 <br>09076131844</br></p>
+          <br>
+          <button><a href="https://api.whatsapp.com/send?phone=2349076131844" style="text-decoration: none;color: white;">Contact Us on WhatsApp</a></button>
+          <br>
+          <button onclick="topFunction()" id="gotop" title="Go to top">Back To Top</button>
+    </div>
+
+  </footer>
+  <br>
+          <h2 style="text-align: center;">Copyright 2025 © TrendyBeatz Media</h2>
+
+<script>
+function updateDateTime() {
+  const now = new Date();
+  const dateTimeString = now.toLocaleString('en-US', {
+    weekday: 'long', year: 'numeric', month: 'long',
+    day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'
+  });
+  document.getElementById('datetime').innerHTML = dateTimeString;
+}
+
+setInterval(updateDateTime, 1000); // Update every second
+updateDateTime(); // Initial call
+</script>
+
+<script>
+  // When the user clicks the button, scroll to the top of the document
+  function topFunction() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Smooth scroll animation
+    });
+  }
+</script>
+
+<script>
+function toggleMenu() {
+  const topnav = document.querySelector('.topnav');
+  topnav.classList.toggle('responsive');
+}
+</script>
+</body>
+</html>
