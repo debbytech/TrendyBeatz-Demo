@@ -34,6 +34,7 @@
     .header-row img {
       width: 120px; /* adjust as needed */
       height: auto;
+      border-radius: 4px;
     }
 
     .header h4 {
@@ -200,6 +201,8 @@
       align-items: center;
       background: linear-gradient(to left, #fff8f0, #ffe6d5);
       border: 1px solid #ddd;
+      flex-wrap: wrap;
+      gap: 10px;
     }
     .row-card img {
       border-radius: 4px;
@@ -211,14 +214,16 @@
     }
 
     .artwork {
+      flex: 0 0 170px; /* fixed width for artwork */
       padding: 5px;
-      width: 25%;
+      max-width: 170px;
       border-radius: 8px;
      }
 
     .details {
+      flex: 1; /* take remaining space */
       padding: 5px;
-      width: 75%;
+      min-width: 200px; /* ensure details have a minimum width */
       border-radius: 8px;
     }
 
@@ -232,6 +237,10 @@
       text-decoration: underline;
     }
 
+    .details p {
+      margin: 5px 0;
+    }
+
     .row-card a, .albums-list a {
       text-decoration: none;
       }
@@ -239,22 +248,27 @@
 /* Responsive Behavior */
       @media screen and (max-width: 600px) {
         .row-card {
-          flex-direction: column;
+          flex-direction: column; /* Stack items vertically */
           align-items: flex-start;
         }
 
-        .artwork img {
-          width: 100%;
+        .artwork, .details {
+          flex: 1 1 100%; /* full width on small screens */
+          max-width: 100%;
           height: auto;
+          text-align: left; /* align text to the left for better readability */
         }
 
         .details {
           padding-left: 0;
           margin-top: 10px;
+          text-align: left; /* align text to the left for better readability */
         }
 
         .details h1 {
           font-size: 18px;
+          word-wrap: break-word; /* ensure long titles wrap */
+          display: block; /* ensure it takes full width */
         }
       }
 
@@ -376,59 +390,7 @@
   transform: scale(1.02); /* gentle zoom on hover */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
-    footer {
-      display: flex;
-      background-color: #0d0f10;
-      color: #ffffff;
-      
-      padding: 10px 5px;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
-
-    footer p {
-      margin: 18px 0;
-      font-size: 18px;
-    }
-
-    footer a {
-      color: #4CAF50; /* change color on hover */
-      text-decoration: none;
-      font-size: 18px;
-    }
-
-    footer a:hover {
-      color: #fff; /* change color on hover */
-    }
-
-    footer b {
-      color: #4CAF50; /* change color on hover */
-      font-weight: bold;
-    }
-
-    .footer1, .footer2, .footer3 {
-      display: flex;
-      color: #ffffff;
-      text-align: left;
-      padding: 20px;
-      flex-direction: column;
-      bottom: 0;
-      width: 100%;
-      
-    }
-
-   
-
-    .footer4 {
-      
-      color: #ffffff;
-      text-align: center;
-      padding: 20px 0;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
+    
 
     #gotop {
       position: fixed;
@@ -436,7 +398,7 @@
       right: 30px;
       z-index: 99;
       font-size: 16px;
-      background-color: #982e45;
+      background-color: #45a049;
       color: white;
       border: none;
       padding: 10px 15px;
@@ -460,6 +422,67 @@
     .footer4 button:hover {
       background-color: #45a049;
     }
+
+  .footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #121212;
+    color: white;
+    padding: 20px;
+  }
+
+.footer-section {
+  flex: 1 1 200px; /* grows, shrinks, base 200px */
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  color: #4CAF50;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: #4CAF50;
+}
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  padding: 8px 12px;
+  color: black;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Responsive for small screens */
+@media screen and (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
 
 </style>
 </head>
@@ -610,7 +633,7 @@
            <div class="row-card">
            
             <div class="artwork">
-              <img src="./imgs/Simi-Day-By-Day-Artwork.jpg" alt="Kizz Daniel" width="170" height="170">
+              <img src="./imgs/Simi-Day-By-Day-Artwork.jpg" alt="Simi" width="170" height="170">
             </div>
             <div class="details">
               <h1 style="text-decoration: none; font-size: 26px; color: #121212;"> <a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Simi - Day By Day ft Kizz Daniel</a></h1>
@@ -646,7 +669,7 @@
            <div class="row-card">
             
             <div class="artwork">
-              <img src="./imgs/Black-Sherif-Iron-Boy-AlbumArtwork1.jpg" alt="Kizz Daniel" width="170" height="170">
+              <img src="./imgs/Black-Sherif-Iron-Boy-AlbumArtwork1.jpg" alt="black-sherif" width="170" height="170">
             </div>
             <div class="details">
               <h1 style="text-decoration: none; font-size: 26px; color: #121212;"><a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Black Sherif - Sacrifice</a></h1>
@@ -663,7 +686,7 @@
            <div class="row-card">
             
             <div class="artwork">
-              <img src="./imgs/Muzomzom-Light-Artwork.JPG" alt="Kizz Daniel" width="170" height="170">
+              <img src="./imgs/Muzomzom-Light-Artwork.JPG" alt="muzozom" width="170" height="170">
             </div>
             <div class="details">
               <h1 style="text-decoration: none; font-size: 26px; color: #121212;"><a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Light - Muzozom</a></h1>
@@ -680,7 +703,7 @@
            <div class="row-card">
             
             <div class="artwork">
-              <img src="./imgs/Goon-Flavour-Ngishutheni-Artwork.jpg" alt="Kizz Daniel" width="170" height="170">
+              <img src="./imgs/Goon-Flavour-Ngishutheni-Artwork.jpg" alt="goon" width="170" height="170">
             </div>
             <div class="details">
               <h1 style="text-decoration: none; font-size: 26px; color: #121212;"><a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Goon Flavour - Ngishutheni ft Master KG, Eemoh</a></h1>
@@ -771,7 +794,7 @@
            <div class="row-card">
             
             <div class="artwork">
-              <img src="./imgs/Goon-Flavour-Ngishutheni-Artwork.jpg" alt="Kizz Daniel" width="170" height="170">
+              <img src="./imgs/Goon-Flavour-Ngishutheni-Artwork.jpg" alt="goon" width="170" height="170">
             </div>
             <div class="details">
               <h1 style="text-decoration: none; font-size: 26px; color: #121212;"><a href="https://trendybeatz.com/download-mp3/61489/kizz-daniel-al-jannah-ft-odumodublvck,-bella-shmurda">Goon Flavour - Ngishutheni ft Master KG, Eemoh</a></h1>
@@ -919,52 +942,58 @@
       </div>
   </div>
   <br>
-  <footer>
-    <div class="footer1">
-      <h3>Quick Link</h3>
-      <li><a href="href=//trendybeatz.com/songs-of-the-week">Top 10 Music</a></li><br>
-      <li><a href="href=//trendybeatz.com/songs-of-the-week">Latest Videos</a></li><br>
-      <li><a href="href=//trendybeatz.com/songs-of-the-week">Download Music</a></li><br>
-      <li><a href="href=//trendybeatz.com/songs-of-the-week">Celebrity News</a></li><br>
-      <li><a href="href=//trendybeatz.com/songs-of-the-week">Upload your Songs</a></li><br>
-      <li><a href="href=//trendybeatz.com/songs-of-the-week">Music Promotion</a></li><br>
-    </div>
-    <div class="footer2">
-      <h3>Hall of Fame</h3>
-       <li><a href="href=//trendybeatz.com/songs-of-the-week">Artistes' Profiles</a></li><br>
-      <li><a href="href=//trendybeatz.com/songs-of-the-week">Albums</a></li><br>
-      <li><a href="href=//trendybeatz.com/songs-of-the-week">Artistes' Biography</a></li><br>
-      <li><a href="href=//trendybeatz.com/songs-of-the-week">Hot Gist</a></li><br>
-      <li><a href="href=//trendybeatz.com/songs-of-the-week">Upcoming Events</a></li><br>
-      <li><a href="href=//trendybeatz.com/songs-of-the-week">DJ Profiles</a></li><br>
-    </div>
-    <div class="footer3">
-      <h3>Company</h3>
-       <li><a href="href=//trendybeatz.com/songs-of-the-week">About Us</a></li><br>
-      <li><a href="href=//trendybeatz.com/songs-of-the-week">Terms of Use</a></li><br>
-      <li><a href="href=//trendybeatz.com/songs-of-the-week">Privacy Policy</a></li><br>
-      <li><a href="href=//trendybeatz.com/songs-of-the-week">Contact Us</a></li><br>
-      <li><a href="href=//trendybeatz.com/songs-of-the-week">Advertise With Us</a></li><br>
-      <li><a href="href=//trendybeatz.com/songs-of-the-week">DMCA</a></li><br>
-      <li><a href="href=//trendybeatz.com/songs-of-the-week">Sitemap</a></li><br>
-    </div>
-    <div class="footer4">
-      <h3>Address</h3>
-      <p><b>Lekki Pennisula<br>
-      Lekki, Lagos, Nigeria</b></p>
-      <p><b>For Advert & Business <br>Inquiries send an Email to us at</b></p>
-        <p style="color: #ffff00;">info@trendybeatz.com</p>
-        <p><b>Advert Placement.<br>
-          Call/WhatsApp: 07067455144 <br>09076131844</br></p>
-          <br>
-          <button><a href="https://api.whatsapp.com/send?phone=2349076131844" style="text-decoration: none;color: white;">Contact Us on WhatsApp</a></button>
-          <br>
-          <button onclick="topFunction()" id="gotop" title="Go to top">Back To Top</button>
-    </div>
+ <footer class="footer">
+  <div class="footer-section">
+    <h3>Quick Links</h3>
+    <ul>
+      <li><a href="//trendybeatz.com/songs-of-the-week">Top 10 Music</a></li>
+      <li><a href="//trendybeatz.com/songs-of-the-week">Latest Videos</a></li>
+      <li><a href="//trendybeatz.com/songs-of-the-week">Download Music</a></li>
+      <li><a href="//trendybeatz.com/songs-of-the-week">Celebrity News</a></li>
+      <li><a href="//trendybeatz.com/songs-of-the-week">Upload your Songs</a></li>
+      <li><a href="//trendybeatz.com/songs-of-the-week">Music Promotion</a></li>
+    </ul>
+  </div>
 
-  </footer>
+  <div class="footer-section">
+    <h3>Hall of Fame</h3>
+    <ul>
+      <li><a href="//trendybeatz.com/songs-of-the-week">Artistes' Profiles</a></li>
+      <li><a href="//trendybeatz.com/songs-of-the-week">Albums</a></li>
+      <li><a href="//trendybeatz.com/songs-of-the-week">Artistes' Biography</a></li>
+      <li><a href="//trendybeatz.com/songs-of-the-week">Hot Gist</a></li>
+      <li><a href="//trendybeatz.com/songs-of-the-week">Upcoming Events</a></li>
+      <li><a href="//trendybeatz.com/songs-of-the-week">DJ Profiles</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-section">
+    <h3>Company</h3>
+    <ul>
+      <li><a href="//trendybeatz.com/songs-of-the-week">About Us</a></li>
+      <li><a href="//trendybeatz.com/songs-of-the-week">Terms of Use</a></li>
+      <li><a href="//trendybeatz.com/songs-of-the-week">Privacy Policy</a></li>
+      <li><a href="//trendybeatz.com/songs-of-the-week">Contact Us</a></li>
+      <li><a href="//trendybeatz.com/songs-of-the-week">Advertise With Us</a></li>
+      <li><a href="//trendybeatz.com/songs-of-the-week">DMCA</a></li>
+      <li><a href="//trendybeatz.com/songs-of-the-week">Sitemap</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-section">
+    <h3>Address</h3>
+    <p><b>Lekki Peninsula<br> Lekki, Lagos, Nigeria</b></p>
+    <p><b>For Advert & Business Inquiries:</b></p>
+    <p style="color: #ffff00;">info@trendybeatz.com</p>
+    <p><b>Advert Placement:<br> Call/WhatsApp: 07067455144, 09076131844</b></p>
+    <button><a href="https://api.whatsapp.com/send?phone=2349076131844" style="color: white;">Contact Us on WhatsApp</a></button><br><br>
+    <button onclick="topFunction()" id="gotop" title="Go to top">Back To Top</button>
+  </div>
+</footer>
   <br>
-          <h2 style="text-align: center;">Copyright 2025 © TrendyBeatz Media</h2>
+      <h2 style="text-align: center;">Copyright 2025 © TrendyBeatz Media</h2>
+
+ 
 
 <script>
 function updateDateTime() {
